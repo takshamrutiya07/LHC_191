@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signal-ict-taksh-92400133191"
+version = "0.1.0"
+description = "A Python package for generating and manipulating signals (sine, cosine, exponential, step, impulse, ramp, and operations)."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Taksh Amrutiya", email = "takshamrutiya@gmail.com" }
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://test.pypi.org/project/signal-ict-taksh-92400133191/"

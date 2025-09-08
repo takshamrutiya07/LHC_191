@@ -1,8 +1,8 @@
 LICENSE
 README.md
 pyproject.toml
-src/signal_ICT_TakshAmrutiya_92400133191/Operations.py
 src/signal_ICT_TakshAmrutiya_92400133191/__init__.py
+src/signal_ICT_TakshAmrutiya_92400133191/operations.py
 src/signal_ICT_TakshAmrutiya_92400133191/trigonometric_signals.py
 src/signal_ICT_TakshAmrutiya_92400133191/unitary_signals.py
 src/signal_ict_taksh_92400133191.egg-info/PKG-INFO

@@ -1,65 +1,53 @@
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 import numpy as np
 
-#here is the logic of the unitStep function
-#What is the work of unitStep function?
-#Ans:The unitstep function give amplitude value 1, when the input value is >=0,else it give 
-#amplitude value 0,And the unitstep signal is a descrete time signal.
-def unitStep(n):
-    result=[]
-    #this for loop will tells us when the o/p should be 1 or 0.
-    for value in n:
-        if(value<0):
-            result.append(0)
-        else:
-            result.append(1)
-    plt.plot()
-    #The unitStep signal is a descrete time signal so we have to generate descrete plot
-    #for that reason we use stem function.
-    plt.stem(n,result)
-    plt.title("Unit Step Signal")
-    plt.xlabel('n')
-    plt.ylabel('u[n]')
+def unit_step(n) :
+    x = np.arange(-n,n+1)#arranging -n to +n for x axis
+    # print(x)
+    step_func = []
+    for i in x :
+        if i>=0 :
+            step_func.append(1)
+        else :
+            step_func.append(0)
+    step_func = np.array(step_func)
+    y = step_func
+    signal = np.column_stack((x,y)) 
+    plt.title('UnitStep Function')
+    plt.stem(x,y)
     plt.show()
-    return result
+    # print(step_func)
+    return signal
 
-
-#Logic of unitImpulse Function.
-#What is unitImpulse Function?
-#Ans:The unit Impulse Function Give amplitude 1 when the i/p is 0,else it give amplitude 0.
-def unitImpulse(n):
-    result=[]
-    for i in n:
-        if(i==0):
-            result.append(1)
-        else:
-            result.append(0)
-    plt.plot()
-    #unitImpulse signal is descrete time signal.
-    plt.stem(n,result)
-    plt.title("Unit Impulse Function")
-    plt.xlabel('n')
-    plt.ylabel('impulse[n]')
+def unit_impulse(n) : 
+    x = np.arange(-n,n+1)#arranging -n to +n for x axis
+    impulse_func = []
+    for i in x :
+        if i==0 :
+            impulse_func.append(1)
+        else : 
+            impulse_func.append(0)
+    impulse_func = np.array(impulse_func)
+    y = impulse_func
+    signal = np.column_stack((x,y)) 
+    plt.title('UnitImpulse Function')
+    plt.stem(x,y)
     plt.show()
-    return result
-    
-   
-#Logic of Ramp signal
-#What is ramp signal?
-#Ans:ramp signal gives output when the time>=0 by this formula:r[t]=a*t,else it give 0.
-def rampSignal(t,a):
-    result=[]
-    for i in t:
-        if(i<0):
-            result.append(0)
-        else:
-            result.append(a*i)
-    plt.plot(t,result)
+    return signal
+
+def ramp_signal(n) :
+    x = np.arange(-n,n+1)#arranging -n to +n for x axis
+    ramp_func = []
+    for i in x :
+        if i<=0 :
+            ramp_func.append(0)
+        else :
+            ramp_func.append(i)
+    ramp_func = np.array(ramp_func)
+    y = ramp_func
+    signal = np.column_stack((x,y)) 
+    # print(ramp_func)
+    plt.title('Ramp Function')
+    plt.stem(x,y)
     plt.show()
-    return result
-            
-
-    
-
-    
-    
+    return signal

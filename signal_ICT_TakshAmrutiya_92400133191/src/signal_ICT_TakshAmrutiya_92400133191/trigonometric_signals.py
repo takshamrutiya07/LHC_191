@@ -1,48 +1,32 @@
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 import numpy as np
-from numpy import *
 
-#Logic of sinWave:
-#how we can create sinwave?
-#Ans:The general formula is y=A*sin(wt+phi),where w=omega=2*pi*f,phi is basically 
-# phase shift it is denoted in radin.
-def sinWave(A,f,phi,t):
-    #here t is 1D array
-    y=A*sin((2*pi*f*t)+phi)
-    # in output y is also an array
-    plt.plot(t, y)
-    plt.title(f"Sine Wave: A={A}, f={f}Hz, φ={phi} rad")
-    plt.xlabel("Time")
-    plt.ylabel("Amplitude")
-    plt.grid(True)
+def sine_wave(A,f,phi,t) :
+    x = np.arange(-t,t+1,1/50)
+    y = A*np.sin(2*np.pi*f*x + phi)
+    signal = np.column_stack((x,y)) 
+    plt.title('sine_wave')
+    plt.plot(x,y)
     plt.show()
-    return y
-    
-#Logic of coswave is same as sinwave
-def cosWave(A,f,phi,t):
-    #here t is 1D array
-    y=A*cos((2*pi*f*t)+phi)
-    # in output y is also an array
-    plt.plot(t, y)
-    plt.title(f"Sine Wave: A={A}, f={f}Hz, φ={phi} rad")
-    plt.xlabel("Time")
-    plt.ylabel("Amplitude")
-    plt.grid(True)
+    return signal
+
+def cosine_wave(A,f,phi,t) :
+    x = np.arange(-t,t+1,1/50)
+    y = A*np.cos(2*np.pi*f*x + phi)
+    signal = np.column_stack((x,y)) 
+    plt.title('cosine_wave')
+    plt.plot(x,y)
     plt.show()
-    return y
+    return signal
+
+def exponential_signal(A,a,t) :
+    x = np.arange(0,t+1,1/50)
+    y = A*np.exp(a*x)
+    plt.title('exponential_signal')
+    signal = np.column_stack((x,y)) 
+    plt.plot(x,y)
+    plt.show()
+    return signal
 
 
-#Logic of exponential_signal
-#How to create exponential_signal?
-#Ans:using this formula we can create y=A*e^at,where A is amplitude,a=constant,t=time
-def exponentialSignal(A,a,t):
-    #here t is a 1D array
-    y=A*exp(a*t)
-    #o/p y is also an array
-    plt.plot(t, y)
-    plt.title("Exponential_signal")
-    plt.xlabel("Time")
-    plt.ylabel("Amplitude")
-    plt.grid(True)
-    plt.show()
-    return y
+
